@@ -1,5 +1,5 @@
 import useHttp from 'hooks/useHttp';
-import React, { useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieById } from 'servises/api';
 import styled from 'styled-components';
@@ -9,7 +9,6 @@ const MovieDetails = () => {
   const location = useLocation();
 
   const goBackRef = useRef(location.state?.from || '/');
-  console.log(goBackRef);
   const [movie] = useHttp(fetchMovieById, movieId);
   return (
     <Wrapper>
@@ -45,7 +44,9 @@ const MovieDetails = () => {
       <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
 
       <hr />
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </Wrapper>
   );
 };
