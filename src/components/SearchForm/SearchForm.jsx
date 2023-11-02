@@ -7,6 +7,7 @@ export const SearchForm = ({ handleSetQuery }) => {
   const handleSubmit = e => {
     e.preventDefault();
     handleSetQuery(searchText);
+    setSearchText('');
   };
 
   return (
