@@ -29,19 +29,26 @@ const MovieDetails = () => {
         <WrapperRight>
           <h2>{movie?.original_title}</h2>
           <p>User Score: {Math.round(movie?.vote_average)}/10</p>
-          <span>Overview</span>
+          <Span>Overview</Span>
           <p>{movie?.overview}</p>
-          <span>Genres</span>
-          <p>
+          <Span>Genres</Span>
+          <Span>
             {movie?.genres.map(genre => (
-              <span key={genre.id}>{genre.name}</span>
+              <p key={genre.id}>{genre.name}</p>
             ))}
-          </p>
+          </Span>
         </WrapperRight>
       </WrapperTop>
       <hr />
-      <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-      <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+      <p>Additional information</p>
+      <List>
+        <li>
+          <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+        </li>
+        <li>
+          <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+        </li>
+      </List>
 
       <hr />
       <Suspense fallback={<div>Loading...</div>}>
@@ -68,6 +75,22 @@ const WrapperRight = styled.div`
 
 const Img = styled.img`
   display: block;
+`;
+
+const Span = styled.span`
+  display: flex;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  & p {
+    font-weight: normal;
+  }
+`;
+
+const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `;
 
 export default MovieDetails;
