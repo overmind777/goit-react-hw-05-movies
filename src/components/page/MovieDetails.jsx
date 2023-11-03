@@ -1,5 +1,5 @@
 import useHttp from 'hooks/useHttp';
-import React, { Suspense, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieById } from 'servises/api';
 import styled from 'styled-components';
@@ -51,9 +51,9 @@ const MovieDetails = () => {
       </List>
 
       <hr />
-      <Suspense fallback={<div>Loading...</div>}>
+      <div>
         <Outlet />
-      </Suspense>
+      </div>
     </Wrapper>
   );
 };

@@ -3,10 +3,11 @@ import HomePage from './page/Home';
 import Movies from './page/Movies';
 import Layout from './Layout/Layout';
 import NotFound from './page/NotFound';
-import { lazy } from 'react';
-const Cast = lazy(() => import('./Cast/Cast'));
-const Reviews = lazy(() => import('./Reviews/Reviews'));
-const MovieDetails = lazy(() => import('./page/MovieDetails'));
+
+import Cast from './Cast/Cast';
+import MovieDetails from './page/MovieDetails';
+import Reviews from './Reviews/Reviews';
+
 export const App = () => {
   return (
     <div>
