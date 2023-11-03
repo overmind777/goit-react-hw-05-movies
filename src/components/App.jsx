@@ -3,10 +3,14 @@ import HomePage from './page/Home';
 import Movies from './page/Movies';
 import Layout from './Layout/Layout';
 import NotFound from './page/NotFound';
+import { lazy } from 'react';
 
-import Cast from './Cast/Cast';
-import MovieDetails from './page/MovieDetails';
-import Reviews from './Reviews/Reviews';
+// import Cast from './Cast/Cast';
+// import MovieDetails from './page/MovieDetails';
+// import Reviews from './Reviews/Reviews';
+const Cast = lazy(() => import('./Cast/Cast'));
+const MovieDetails = lazy(() => import('./page/MovieDetails'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (
